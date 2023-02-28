@@ -2,12 +2,12 @@ public class Main {
     /*
      * Feito por: ERIC RODRIGUES DINIZ
      * MATRÍCULA: 707760
-     * 🍕 Exercício 01: Conceitos básicos de POO 🍕
+     * 🍕Exercício 01: Conceitos básicos de POO 🍕
      * Uma pizzaria precisa de um sistema de software para controlar suas vendas. O
      * primeiro passo para isso é automatizar o valor cobrado pelas pizzas vendidas.
      * A pizzaria está iniciando os negócios com um modelo simplificado de vendas,
      * seguindo estas regras:
-     *
+     * 
      * A pizza básica contém queijo e calabresa, custando R$25.
      * A pizza pode ser personalizada com até 8 ingredientes adicionais. Já que
      * todos têm o mesmo valor, não é necessário diferenciar os tipos ou nomes de
@@ -17,6 +17,13 @@ public class Main {
      * Sua tarefa inicial é analisar o problema e projetar uma classe Pizza que
      * atenda aos requisitos levantados. Para criar o modelo, utilize uma das
      * ferramentas indicadas na página inicial da disciplina.
+     * 
+     * ATENÇÃO PARA O COMPLEMENTO DA TAREFA:
+     * 
+     * Para terminar a primeira fase do projeto, escreva o código para sua classe
+     * Pizza. Você precisa ter certeza que a sua classe está correta. Então, escreva
+     * uma classe de teste unitário utilizando JUnit, verificando a correção da
+     * classe Pizza.
      */
     public static void main(String[] args) {
 
