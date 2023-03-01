@@ -1,3 +1,5 @@
+import javax.naming.directory.InvalidAttributesException;
+
 public class Pizza {
     /*
      * Feito por: ERIC RODRIGUES DINIZ
@@ -36,7 +38,8 @@ public class Pizza {
 
     // CONSTRUCTORS
     public Pizza() {
-
+        // Pizza basica s/ adicional
+        this.qtd_adicionais = 0;
     }
 
     /**
@@ -44,7 +47,11 @@ public class Pizza {
      *                       adicionais, e irá retornar um objeto com o param
      *                       inserido
      */
-    public Pizza(int qtd_adicionais) {
+    public Pizza(int qtd_adicionais) throws InvalidAttributesException {
+
+        if (qtd_adicionais > 8 || qtd_adicionais < 0) {
+            throw new InvalidAttributesException("Digite um valor entre 0 e 8");
+        }
         this.qtd_adicionais = qtd_adicionais;
     }
 
@@ -66,8 +73,12 @@ public class Pizza {
     }
 
     public void setQtd_adicionais(int qtd_adicionais) {
-        if (qtd_adicionais >= 0 || qtd_adicionais < 9) {
-            this.qtd_adicionais = qtd_adicionais;
+        try {
+            if (qtd_adicionais >= 0 || qtd_adicionais < 9) {
+                this.qtd_adicionais = qtd_adicionais;
+            }
+        } catch (Exception e) {
+            System.err.println("Digite a quantidade entre 0 e 8, valor atual inserido: " + qtd_adicionais);
         }
     }
 
@@ -81,10 +92,9 @@ public class Pizza {
     /**
      * @return sem parametros, irá retornar a nota com a descrição e valor final
      */
-    public void gerar_Nota() {
-        System.out.println(
-                "O valor final da pizza de calabresa e queijo é: " + valor_Final() + " e contém "
-                        + this.getQtd_adicionais() + " adicionais");
+    public String gerar_Nota() {
+        return "O valor final da pizza de calabresa e queijo é: " + valor_Final() + " e contém "
+                + this.getQtd_adicionais() + " adicionais";
     }
 
 }

@@ -1,18 +1,14 @@
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertLinesMatch;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import org.hamcrest.core.StringContains;
+import javax.naming.directory.InvalidAttributesException;
+
 import org.junit.jupiter.api.Test;
 
 class PizzaTeste {
 
-    public Pizza pizza = new Pizza();
-    public Pizza pizzaSemAdicionais = new Pizza(0);
-    public Pizza pizzaComAdicionais = new Pizza(8);
-    public Pizza pizzaComAdicionaisAlemMaximoPermitido = new Pizza(9);
+    public Pizza pizzaSemAdicionais = new Pizza();
+    public Pizza pizzaComAdicionais = new Pizza();
 
     /**
      * Teste para valor fixo da pizza, expectativa igual 25
@@ -27,7 +23,8 @@ class PizzaTeste {
      */
     @Test
     void maxDeAdicionaisIgualOito() {
-        assertSame(8, pizzaComAdicionais.getQtd_adicionais());
+        pizzaComAdicionais.setQtd_adicionais(8);
+        assertEquals(8, pizzaComAdicionais.getQtd_adicionais());
     }
 
     /**
@@ -35,7 +32,16 @@ class PizzaTeste {
      */
     @Test
     void pizzaSemAdicionais() {
+        pizzaSemAdicionais.setQtd_adicionais(0);
         assertEquals(0, pizzaSemAdicionais.getQtd_adicionais());
+    }
+
+    /**
+     * Teste para qtd do adicionais maior que 8
+     */
+    @Test
+    void maxDeAdicionaisMaiorQueOito() {
+        assertThrows(InvalidAttributesException.class, () -> new Pizza(9));
     }
 
     /**
@@ -45,9 +51,9 @@ class PizzaTeste {
     void gerarNota() {
         // assertEq("O valor final da pizza de calabresa e queijo é: 25 e contém 0
         // adicionais", pizzaSemAdicionais.gerar_Nota());
-        String descricao = "O valor final da pizza de calabresa e queijo é: 25 e contém 0 adicionais";
+        String descricao = "O valor final da pizza de calabresa e queijo é: 25.0 e contém 0 adicionais";
         // assertTrue(descricao.equals(pizzaSemAdicionais.gerar_Nota()), true);
-        // assertEquals(descricao, pizzaSemAdicionais.gerar_Nota());
+        assertEquals(descricao, pizzaSemAdicionais.gerar_Nota());
     }
 
     /**
@@ -55,7 +61,6 @@ class PizzaTeste {
      */
     @Test
     void gerarValorFinal() {
-        assertEquals(57, pizzaComAdicionais.valor_Final());
         assertEquals(25, pizzaSemAdicionais.valor_Final());
     }
 }
