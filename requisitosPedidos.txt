@@ -1,0 +1,12 @@
+Situação que o Xulambs Pizza deseja:
+- Um pedido pode conter no máximo 10 pizzas,
+pois esta é a capacidade de produção atual da cozinha.
+- O pedido precisa exibir, em sua nota de compra,
+a descrição e o valor de cada pizza, bem como o valor total do pedido.
+- Os pedidos da Xulambs Pizza devem ser numerados para permitir identificação posterior.
+Não pode haver pedidos com identificadores iguais.
+
+Requisitos:
+1. pedido com no minimo 1 pizza e no maximo 10 pizzas.
+2. Exibir descricao e valor de cada pizza, e a soma do total.
+3. Os pedidos devem possuir id (nao pode haver ids iguais).
