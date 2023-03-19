@@ -34,6 +34,10 @@ public class Pedido {
         return id;
     }
 
+    public int getSize() {
+        return listaDaPizza.size();
+    }
+
     public Pedido() {
         this.id = proxPedido;
         proxPedido++;
@@ -75,4 +79,13 @@ public class Pedido {
         pizza.setQtd_adicionais(quantidadeDeAdicionais);
         listaDaPizza.set(indexPizza, pizza);
     }
+
+    public void removerPizzaDoPedido(int indexPizza) {
+        if (listaDaPizza.size() > 0) {
+            listaDaPizza.remove(indexPizza);
+        } else {
+            System.out.println("Sem pizza no pedido!");
+        }
+    }
+
 }

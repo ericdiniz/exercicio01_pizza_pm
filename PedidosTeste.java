@@ -83,4 +83,16 @@ public class PedidosTeste {
           assertEquals(29, pedido1.exibirValorTotalDoPedido());
      }
 
+     @Test
+     /**
+      * Teste para remover pizza do pedido
+      */
+     public void removerPizzaDoPedido() throws InvalidAttributesException {
+          int indexPizza = 0;
+          pedido1.adicionarPizzaNoPedido(pizza);
+          assertEquals(1, pedido1.getSize());
+          pedido1.removerPizzaDoPedido(indexPizza);
+          assertEquals(0, pedido1.getSize());
+     }
+
 }
