@@ -33,6 +33,7 @@ public class Pizza {
      */
     private int id;
     private int qtd_adicionais;
+    private String descricaoPizza = "pizza básica de calabresa e queijo";
     private static final double valor_fixo = 25; // atributo de classe
     private static final double valor_adicionais = 4; // atributo de classe
 
@@ -89,12 +90,14 @@ public class Pizza {
         return this.getValor_fixo() + (this.getQtd_adicionais() * valor_adicionais);
     }
 
-    /**
-     * @return sem parametros, irá retornar a nota com a descrição e valor final
-     */
-    public String gerar_Nota() {
-        return "O valor final da pizza de calabresa e queijo é: " + valor_Final() + " e contém "
-                + this.getQtd_adicionais() + " adicionais";
+    public StringBuilder gerar_Nota() {
+        StringBuilder descricaoCompleta = new StringBuilder();
+        descricaoCompleta.append(descricaoPizza)
+                .append(" com ")
+                .append(getQtd_adicionais())
+                .append(" adicionais e o valor da pizza é: ")
+                .append(valor_Final());
+        return descricaoCompleta;
     }
 
 }

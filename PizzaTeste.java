@@ -51,7 +51,7 @@ class PizzaTeste {
     void gerarNota() {
         // assertEq("O valor final da pizza de calabresa e queijo é: 25 e contém 0
         // adicionais", pizzaSemAdicionais.gerar_Nota());
-        String descricao = "O valor final da pizza de calabresa e queijo é: 25.0 e contém 0 adicionais";
+        String descricao = "pizza básica de calabresa e queijo com 0 adicionais e o valor da pizza é: 25.0";
         // assertTrue(descricao.equals(pizzaSemAdicionais.gerar_Nota()), true);
         assertEquals(descricao, pizzaSemAdicionais.gerar_Nota());
     }
